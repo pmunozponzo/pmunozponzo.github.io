@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>First Leaflet</title>
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+	<style type="text/css">
+	#map { 
+		height: 700px;
+		 }
+	</style>
+</head>
+<body>
+<div id="map"/>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+<script type="text/javascript">
+var map = L.map('map').setView([40.7590, -73.9844], 12);
+
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+
+var marker1 = L.marker([40.7286, -73.9587]).addTo(map);
+marker1.bindPopup("<strong>Cafe Grumpy</strong><br>You remmeber this from HBO series Girls.This is a serious coffee shop with a range of single origin coffees. You can do a pour-over or get an espresso based drink.").openPopup();
+
+var marker2 = L.marker([40.7520, -73.9857]).addTo(map);
+marker2.bindPopup("<strong>Culture Espresso</strong><br>Culture Espresso is one of the best coffee shops in Manhattan. Their espressos are to die for. The Cortado I had there was one of the best I have ever tasted. ").openPopup();
+
+var marker3 = L.marker([40.8286, -73.9485]).addTo(map);
+marker3.bindPopup("<strong>The Chipped Cup</strong><br>This basement cafe serves coffee brewed with Counter Culture beans. The coffee is decent, but the highlight of this place is the  back garden patio").openPopup();
+
+var marker4 = L.marker([40.7151, -74.0109]).addTo(map);
+marker4.bindPopup("<strong>Kaffe 1668</strong><br>The theme is sheep. The interiors are all woodgrain mixed with steel and warm industrial themes. The coffee is very good with intimate seating on shared wooden tables and a long mirror on the wall.").openPopup();
+
+var marker5 = L.marker([40.7457, -73.9882]).addTo(map);
+marker5.bindPopup("<strong>Stumptown Coffee Roasters</strong><br> On contrary to the rave reviews, the macchiato that I ordered was one of the worst I have ever had. I’m not sure if ordered the right drink or it was not the best day.").openPopup();
+
+var marker6 = L.marker([40.8100, -73.9620]).addTo(map);
+marker6.bindPopup("<strong>Joe Coffee</strong><br>The coffee is amazing, we had single-origin pour-over drinks. The greates selling point is the location (Columbia) and the glass building where it is location.").openPopup();
+
+var marker7 = L.marker([40.7502, -73.9876]).addTo(map);
+marker7.bindPopup("<strong>Intelligentsia</strong><br>I ordered a pour-over coffee of Kenyan origin which was brewed using an automatic machine. I was told that this equipment maintains a uniform recipe with fixed temperature, quantity of coffee, and amount of water.").openPopup();
+
+var marker8 = L.marker([40.7300, -73.7878]).addTo(map);
+marker8.bindPopup("<strong>Queens try2</strong><br>I ordered a pour-over coffee of Kenyan origin which was brewed using an automatic machine. I was told that this equipment maintains a uniform recipe with fixed temperature, quantity of coffee, and amount of water.").openPopup();
+
+var marker9 = L.marker([40.7200, -73.6000]).addTo(map);
+marker9.bindPopup("<strong>Queens try1</strong><br>I ordered a pour-over coffee of Kenyan origin which was brewed using an automatic machine. I was told that this equipment maintains a uniform recipe with fixed temperature, quantity of coffee, and amount of water.").openPopup();
+
+var marker10 = L.marker([40.7100, -73.6000]).addTo(map);
+marker10.bindPopup("<strong>Queens try3</strong><br>I ordered a pour-over coffee of Kenyan origin which was brewed using an automatic machine. I was told that this equipment maintains a uniform recipe with fixed temperature, quantity of coffee, and amount of water.").openPopup();
+
+var marker11 = L.marker([40.7000, -73.6000]).addTo(map);
+marker11.bindPopup("<strong>Queens try4</strong><br>I ordered a pour-over coffee of Kenyan origin which was brewed using an automatic machine. I was told that this equipment maintains a uniform recipe with fixed temperature, quantity of coffee, and amount of water.").openPopup();
+
+var polygon = L.polygon([
+    [40.7000, -73.6000],
+    [40.7300, -73.7878],
+    [40.7151, -74.0109]
+]).addTo(map);
+   
+
+   	L.circle([40.7151, -74.0000], 500, {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5
+	}).addTo(map).bindPopup("I am a circle.");
+
+
+var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+}
+
+map.on('click', onMapClick);
+
+
+</script>
+</script>
+</body>
+</html>
